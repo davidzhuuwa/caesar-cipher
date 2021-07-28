@@ -19,3 +19,16 @@ shift = int(input("Type the shift number:\n"))
     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
+
+def encrypt(plain_text,shift_amount):
+    encoded_text = ''
+    for letter in plain_text:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        if new_position > 25:
+            new_position = new_position-26
+        shifted_letter = alphabet[new_position]
+        encoded_text+= shifted_letter
+    print(f'The encoded text is {encoded_text}')
+
+encrypt(plain_text=text,shift_amount=shift)
